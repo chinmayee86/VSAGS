@@ -1,0 +1,17 @@
+@echo off
+
+set SCRIPT="%USERPROFILE%\Desktop\Business Complexes\myscript.vbs"
+
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "%USERPROFILE%\Desktop\Business Complexes.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "%USERPROFILE%\Desktop\Business Complexes\myscript.bat" >> %SCRIPT%
+echo oLink.IconLocation = "%USERPROFILE%\Desktop\Business Complexes\icon.ico" >> %SCRIPT%
+echo oLink.WorkingDirectory ="%USERPROFILE%\Desktop\Business Complexes" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+
+cscript /nologo %SCRIPT%
+
+PAUSE
+
+del %SCRIPT%
