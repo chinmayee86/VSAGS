@@ -1,0 +1,12 @@
+ECHO ON
+REM A batch script to execute a Python script
+SET PATH=%PATH%;%USERPROFILE%\Desktop\Gated Society
+python server5.py
+PAUSE
+Set oWS = WScript.CreateObject("WScript.Shell")
+sLinkFile = "%USERPROFILE%\Desktop\Gated Society.lnk"
+Set oLink = oWS.CreateShortcut(sLinkFile)
+oLink.TargetPath = "%USERPROFILE%\Desktop\Gated Society\myscript.bat"
+oLink.IconLocation = "%USERPROFILE%\Desktop\Gated Society\icon.ico"
+oLink.WorkingDirectory ="%USERPROFILE%\Desktop\Gated Society"
+oLink.Save 
